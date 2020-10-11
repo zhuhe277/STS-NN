@@ -86,7 +86,7 @@ def train(epoch, best_acc, patience, fold_id):
         y_selected = y_train[selected_idx]
 
         corrects = (torch.max(output, 1)[1].view(len(selected_idx)).data == y_selected.data).sum()
-        accuracy = 100.*corrects/len(selected_idx)
+        accuracy = 100.0*corrects/len(selected_idx)
 
         if i > 0 and i % 100 == 0:
             best_acc, patience = evaluate(best_acc, patience, fold_id)
